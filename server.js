@@ -24,6 +24,11 @@ if (fs.existsSync(DATA_FILE)) {
   }
 }
 
+// Root route for Railway health check
+app.get('/', (req, res) => {
+  res.send('Backend is up and running!');
+});
+
 // GET all listings
 app.get('/listings', (req, res) => {
   res.json(listings);
@@ -60,4 +65,5 @@ app.post('/listings', (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on http://0.0.0.0:${PORT}`);
 });
+
 
